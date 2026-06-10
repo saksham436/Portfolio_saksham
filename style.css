@@ -1,0 +1,320 @@
+/* =========================================================================
+   1. Core Presentation Base & Sidebar Layout Rules
+   ========================================================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f8fafc;
+    color: #0f172a;
+    display: flex;
+}
+
+.sidebar {
+    width: 80px;
+    height: 100vh;
+    background-color: #ffffff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+    z-index: 100;
+}
+
+.nav-links { display: flex; flex-direction: column; gap: 25px; }
+.nav-links a { color: #64748b; font-size: 1.4rem; text-decoration: none; }
+.nav-links a:hover, .nav-links a.active { color: #2563eb; }
+
+.main-content {
+    margin-left: 80px;
+    width: calc(100% - 80px);
+}
+
+/* Fluid Header Geometry Setup */
+.hero-section {
+    position: relative;
+    min-height: 520px;
+    background: linear-gradient(135deg, #f0f7ff 0%, #e0f2fe 100%);
+    display: flex;
+    align-items: center;
+    padding: 60px 8%;
+    overflow: hidden;
+}
+
+.hero-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 140px;
+    background: #2563eb;
+    border-top-left-radius: 50% 100%;
+    border-top-right-radius: 50% 100%;
+    z-index: 1;
+    transform: scaleX(1.3) translateY(50px);
+}
+
+.hero-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+    position: relative;
+}
+
+.hero-text h1 { font-size: 3.5rem; color: #0f172a; }
+.hero-text h2 { font-size: 1.8rem; color: #475569; font-weight: 400; margin-bottom: 30px;}
+.btn-resume { display: inline-block; background-color: #0f172a; color: #ffffff; padding: 12px 28px; border-radius: 6px; text-decoration: none; font-weight: 600; }
+
+.hero-avatar .avatar-circle { width: 320px; height: 320px; border-radius: 50%; background: white; padding: 8px; box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+.hero-avatar .avatar-circle img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+
+/* Counter Widgets Styling */
+.counter-grid { padding: 40px 8%; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+.counter-card { background: white; padding: 20px; border-radius: 12px; display: flex; align-items: center; gap: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+.counter-card img { width: 44px; height: 44px; object-fit: contain; }
+
+.section-padding { padding: 60px 8%; }
+.section-title { font-size: 2.5rem; font-weight: 500; margin-bottom: 30px; color: #0f172a; letter-spacing: -0.5px; }
+
+
+
+
+
+
+
+
+
+/* ================= ========================================
+   KEY SKILLS SECTION LAYOUT RULES
+   =========.skills-container {
+/* ================= ========================================
+   KEY SKILLS SECTION LAYOUT RULES (CORRECTED COLOR FLOW)
+   ========================================================= */
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding-top: 10px;
+}
+
+.skill-pill {
+    background: #ffffff; /* pure white backgrounds like your counter cards */
+    border: 1px solid #e2e8f0;
+    padding: 12px 24px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 4px 6px rgba(15, 23, 42, 0.02);
+    transition: all 0.2s ease;
+}
+
+.skill-pill:hover {
+    transform: translateY(-2px);
+    border-color: #2563eb;
+    background: #ffffff;
+    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.08);
+}
+
+.skill-pill img {
+    width: 26px;
+    height: 26px;
+    object-fit: contain;
+}
+
+.skill-pill span {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #0f172a; /* matches your main text identity dark tone */
+}
+
+/* Tablet & Mobile Tweaks for Skills */
+@media (max-width: 768px) {
+    .skills-container {
+        gap: 12px;
+    }
+    .skill-pill {
+        padding: 10px 18px;
+    }
+    .skill-pill span {
+        font-size: 0.9rem;
+    }
+}
+
+
+
+
+
+/* =========================================================================
+   2. Horizontal Project Grid Component Layout Rules
+   ========================================================================= */
+.projects-horizontal-scroll {
+    display: flex;
+    gap: 25px;
+    overflow-x: auto;
+    padding: 15px 5px 30px 5px;
+    scroll-behavior: smooth;
+}
+.projects-horizontal-scroll::-webkit-scrollbar { height: 8px; }
+.projects-horizontal-scroll::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 10px; }
+.projects-horizontal-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+
+.project-thumb-card { flex: 0 0 380px; background: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 25px rgba(15,23,42,0.03); border: 1px solid #e2e8f0; display: flex; flex-direction: column; }
+.card-banner-wrapper { width: 100%; height: 200px; overflow: hidden; }
+.card-banner-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+.card-body-content { padding: 22px; display: flex; flex-direction: column; flex-grow: 1; }
+.card-body-content h3 { font-size: 1.15rem; font-weight: 700; color: #0f172a; margin-bottom: 12px; }
+.card-domain-info { font-size: 0.85rem; color: #64748b; margin-bottom: 20px; }
+.blue-text { color: #2563eb; font-weight: 600; }
+.card-footer-action { margin-top: auto; display: flex; justify-content: space-between; align-items: center; }
+.btn-card-action { background: #ffffff; color: #0f172a; border: 1.5px solid #0f172a; padding: 8px 20px; border-radius: 20px; font-size: 0.85rem; font-weight: 700; cursor: pointer; }
+.footer-tool-logo { width: 24px; height: 24px; object-fit: contain; }
+
+/* Experience Component Structuring */
+.experience-box { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04); border-left: 5px solid #2563eb; }
+.experience-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 15px; }
+.experience-header h3 { font-size: 1.3rem; color: #0f172a; }
+.experience-sub { color: #2563eb; font-weight: 600; font-size: 0.9rem; }
+.experience-date { background: #eff6ff; color: #2563eb; padding: 6px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; }
+.experience-desc { color: #64748b; font-size: 0.95rem; }
+
+/* Awards Grid Structural Rules */
+.cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+.cert-card { background: transparent; }
+.cert-img-holder { width: 100%; height: 240px; background: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04); border: 1px solid #e2e8f0; display: flex; justify-content: center; align-items: center; margin-bottom: 15px; }
+.cert-img-holder img { width: 100%; height: 100%; object-fit: cover; }
+.cert-name { font-size: 0.9rem; font-weight: 500; color: #475569; line-height: 1.5; text-align: center; padding: 0 5px; }
+
+/* Lightbox Pop-up Modals Presentation Blueprint */
+.lightbox-trigger { cursor: pointer; transition: transform 0.2s ease; }
+.lightbox-trigger:hover, .lightbox-trigger:focus { transform: scale(1.03); }
+.lightbox-modal { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(15, 23, 42, 0.85); backdrop-filter: blur(6px); justify-content: center; align-items: center; }
+.lightbox-content { max-width: 85%; max-height: 85%; object-fit: contain; border-radius: 12px; animation: zoomIn 0.3s ease; }
+.lightbox-close { position: absolute; top: 30px; right: 40px; color: #ffffff; font-size: 45px; cursor: pointer; user-select: none; }
+
+@keyframes zoomIn {
+    from { transform: scale(0.92); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* Let's Connect Contact Geometry Elements */
+.contact-subtitle { font-size: 1rem; color: #475569; max-width: 850px; line-height: 1.6; margin-bottom: 30px; }
+.contact-resume-row { display: flex; align-items: center; gap: 15px; margin-bottom: 30px; }
+.contact-resume-row span { font-size: 1rem; color: #0f172a; }
+.btn-connect-resume { display: flex; align-items: center; gap: 8px; background: #3b82f6; color: #ffffff; padding: 8px 18px; border-radius: 20px; text-decoration: none; font-weight: 600; font-size: 0.85rem; }
+.contact-cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
+.connect-card { background: #ffffff; border-radius: 12px; padding: 20px 24px; display: flex; align-items: center; gap: 16px; border: 1px solid #f1f5f9; }
+.connect-icon { font-size: 1.3rem; display: flex; align-items: center; justify-content: center; }
+.mail-bg i { color: #4f46e5; }
+.linkedin-bg i { color: #2563eb; }
+.github-bg i { color: #0f172a; }
+.connect-details span { font-size: 0.85rem; color: #64748b; display: block; }
+.connect-details p { font-size: 0.95rem; font-weight: 700; color: #0f172a; margin-top: 4px; }
+
+/* Dynamic Project Details Popup Blueprint Presentation Matrix */
+.project-modal { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 1000; display: none; align-items: center; justify-content: center; }
+.project-modal.active { display: flex; }
+.modal-overlay { position: absolute; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(4px); }
+.modal-wrapper { position: relative; background: #ffffff; width: 90%; max-width: 1100px; height: 85vh; border-radius: 16px; overflow-y: auto; z-index: 1010; box-shadow: 0 25px 50px rgba(0,0,0,0.15); }
+.modal-close-btn { position: absolute; top: 15px; right: 20px; background: none; border: none; font-size: 2rem; color: #64748b; cursor: pointer; z-index: 1020; }
+.modal-grid-upper { display: grid; grid-template-columns: 1.1fr 1.3fr; gap: 35px; padding: 40px; border-bottom: 1px solid #e2e8f0; align-items: start; }
+.modal-grid-lower { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; padding: 40px; }
+.modal-badge-tag { display: inline-block; background: #eff6ff; color: #2563eb; padding: 5px 14px; border-radius: 6px; font-size: 0.8rem; font-weight: 700; margin-bottom: 15px;}
+.modal-meta-row { display: flex; gap: 15px; margin-top: 25px; }
+.modal-meta-row a { display: flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 20px; text-decoration: none; font-size: 0.85rem; font-weight: 600; }
+.link-engagement { background: #e0f2fe; color: #0369a1; }
+.link-github { background: #f1f5f9; color: #334155; }
+
+/* =========================================================================
+   3. Live Dashboard Embedding - Contextual Modal Isolation Rules
+   ========================================================================= */
+.modal-fullwidth-dashboard {
+    display: none; 
+}
+
+.project-modal.active .modal-fullwidth-dashboard {
+    display: block !important;
+    width: 100% !important;
+    padding: 20px 40px 40px 40px;
+    clear: both;
+}
+
+.pbi-iframe-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; 
+    height: 0;
+    overflow: hidden;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+}
+
+.pbi-iframe-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: #ffffff;
+}
+
+/* =========================================================================
+   4. NEW ADDITIONS: Mobile & Tablet Responsiveness Overrides
+   ========================================================================= */
+@media (max-width: 991px) {
+    .hero-container {
+        flex-direction: column-reverse;
+        gap: 40px;
+        text-align: center;
+    }
+    .hero-text h1 { font-size: 2.8rem; }
+    .hero-avatar .avatar-circle { width: 260px; height: 260px; }
+    .modal-grid-upper { grid-template-columns: 1fr; gap: 20px; padding: 20px; }
+    .modal-grid-lower { grid-template-columns: 1fr; gap: 25px; padding: 20px; }
+}
+
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+    .sidebar {
+        width: 100%;
+        height: 60px;
+        bottom: 0;
+        top: auto;
+        left: 0;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+    }
+    .nav-links {
+        flex-direction: row;
+        gap: 30px;
+    }
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+        padding-bottom: 60px; /* Space for the fixed bottom nav bar */
+    }
+    .hero-section {
+        padding: 40px 5%;
+    }
+    .hero-text h1 { font-size: 2.2rem; }
+    .hero-text h2 { font-size: 1.3rem; }
+    .section-padding { padding: 40px 5%; }
+    .section-title { font-size: 2rem; }
+    .project-thumb-card { flex: 0 0 300px; } /* Slightly narrower cards for smaller displays */
+    .project-modal.active .modal-fullwidth-dashboard { padding: 20px; }
+    .modal-wrapper { width: 95%; height: 90vh; }
+}
